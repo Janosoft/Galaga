@@ -20,6 +20,7 @@ func _animate():
 		if !animatedSprite.is_playing():
 				exploding= false
 				animatedSprite.play("idle")
+				_reset()
 
 func _controls(delta):
 	if Input.is_action_pressed("move_left"):
@@ -44,7 +45,6 @@ func _hit():
 	exploding= true
 	animatedSprite.play("explode")
 	if lives <=0: print ("END GAME")
-	else: _reset()
 
 func _on_hitbox_body_entered(body):
 	if body.get_parent().name == "Enemies":
