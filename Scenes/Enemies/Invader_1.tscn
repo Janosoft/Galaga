@@ -1,8 +1,25 @@
-[gd_scene load_steps=25 format=3 uid="uid://355puh8npa4q"]
+[gd_scene load_steps=30 format=3 uid="uid://355puh8npa4q"]
 
 [ext_resource type="Script" path="res://Scripts/Invader_1.gd" id="1_88e4n"]
 [ext_resource type="Texture2D" uid="uid://5wj71qp2pnru" path="res://Assets/Enemies/Invader1.png" id="1_hpx2f"]
+[ext_resource type="Texture2D" uid="uid://bawcvr3nxxssb" path="res://Assets/Enemies/EnemyExplosion.png" id="2_r8y4q"]
 [ext_resource type="Texture2D" uid="uid://dlka1ufoetmn8" path="res://Assets/Enemies/Invader2.png" id="2_rqpet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb3fv"]
+atlas = ExtResource("2_r8y4q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38n2x"]
+atlas = ExtResource("2_r8y4q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whl58"]
+atlas = ExtResource("2_r8y4q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0s65"]
+atlas = ExtResource("2_r8y4q")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr2e4"]
 atlas = ExtResource("1_hpx2f")
@@ -78,6 +95,23 @@ region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_krikm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb3fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38n2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whl58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0s65")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sr2e4")
@@ -166,7 +200,7 @@ script = ExtResource("1_88e4n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_krikm")
-animation = &"idle"
+animation = &"explode"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

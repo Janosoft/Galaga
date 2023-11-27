@@ -4,15 +4,21 @@ const SPEED = 50
 const STARTY = 20
 
 var lives = 2
+var exploding = false
 @onready var viewportSize = get_viewport().content_scale_size
 @onready var animatedSprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	_animate()
-	_move(delta)
+	if !exploding: _move(delta)
 
 func _animate():
-	if lives == 1: animatedSprite.play("idle_hit")
+	if animatedSprite.animation=="explode":
+		if !animatedSprite.is_playing():
+				queue_free()
+	else:
+		if lives == 1: animatedSprite.play("idle_hit")
+		else: animatedSprite.play("idle")
 
 func _move(delta):
 	position.y += SPEED * delta
@@ -28,7 +34,8 @@ func _hit():
 	if lives <=0: _destroy()
 
 func _destroy():
-	queue_free()
+	exploding= true
+	animatedSprite.play("explode")
 
 func _reset():
 	position.y= 20
