@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://chomy5gehky17"]
+
+[ext_resource type="Texture2D" uid="uid://b2tuugincmonl" path="res://Assets/Enemies/Invader5.png" id="1_c3nef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aexxm"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaqlq"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxnuf"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_867cu"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2hg4"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2pqw"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v82u"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hh6p"]
+atlas = ExtResource("1_c3nef")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwf00"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aexxm")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaqlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxnuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_867cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2hg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2pqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v82u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hh6p")
+}],
+"loop": false,
+"name": &"rotating",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vh2h"]
+size = Vector2(14, 13)
+
+[node name="Invader_5" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vwf00")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_6vh2h")

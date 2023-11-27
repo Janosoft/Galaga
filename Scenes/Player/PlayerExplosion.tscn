@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bct67l3gbvotl"]
+
+[ext_resource type="Texture2D" uid="uid://bxegisl245tqv" path="res://Assets/Player/PlayerExplosion.png" id="1_qe2le"]
+[ext_resource type="Script" path="res://Scripts/PlayerExplosion.gd" id="1_y5c88"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgyl6"]
+atlas = ExtResource("1_qe2le")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jl4n"]
+atlas = ExtResource("1_qe2le")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ut0"]
+atlas = ExtResource("1_qe2le")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woius"]
+atlas = ExtResource("1_qe2le")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yiof8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgyl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jl4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ut0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woius")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mf3a"]
+size = Vector2(30, 32)
+
+[node name="PlayerExplosion" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_y5c88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yiof8")
+animation = &"explode"
+autoplay = "explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8mf3a")

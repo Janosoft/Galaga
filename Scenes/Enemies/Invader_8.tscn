@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdpesob4ar665"]
+
+[ext_resource type="Texture2D" uid="uid://1hbhefg6nvoy" path="res://Assets/Enemies/Invader8.png" id="1_0u88x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uffws"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55osw"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdqkh"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyc57"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfg1f"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tx2n"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17lhb"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0wc4"]
+atlas = ExtResource("1_0u88x")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo734"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uffws")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55osw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdqkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyc57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfg1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tx2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17lhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0wc4")
+}],
+"loop": false,
+"name": &"rotating",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w10j"]
+size = Vector2(15, 16)
+
+[node name="Invader_8" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oo734")
+animation = &"rotating"
+autoplay = "idle"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_6w10j")
