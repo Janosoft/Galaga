@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ld326jf4kgh"
-path="res://.godot/imported/Invader3.png-b6f21de6ab4cb16c284fb62c0beaf102.ctex"
+uid="uid://5wj71qp2pnru"
+path="res://.godot/imported/BossGalaga.png-1ceeae5c1b49c1653eb7d6492d084b8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader3.png"
-dest_files=["res://.godot/imported/Invader3.png-b6f21de6ab4cb16c284fb62c0beaf102.ctex"]
+source_file="res://Assets/Enemies/BossGalaga.png"
+dest_files=["res://.godot/imported/BossGalaga.png-1ceeae5c1b49c1653eb7d6492d084b8e.ctex"]
 
 [params]
 

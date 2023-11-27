@@ -1,6 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://chomy5gehky17"]
+[gd_scene load_steps=19 format=3 uid="uid://chomy5gehky17"]
 
-[ext_resource type="Texture2D" uid="uid://b2tuugincmonl" path="res://Assets/Enemies/Invader5.png" id="1_c3nef"]
+[ext_resource type="Texture2D" uid="uid://b2tuugincmonl" path="res://Assets/Enemies/Momiji.png" id="1_c3nef"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Momiji.gd" id="1_n3ss3"]
+[ext_resource type="Texture2D" uid="uid://bawcvr3nxxssb" path="res://Assets/Enemies/EnemyExplosion.png" id="3_4ijw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn05x"]
+atlas = ExtResource("3_4ijw3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhq36"]
+atlas = ExtResource("3_4ijw3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo03l"]
+atlas = ExtResource("3_4ijw3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw81c"]
+atlas = ExtResource("3_4ijw3")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aexxm"]
 atlas = ExtResource("1_c3nef")
@@ -36,6 +54,23 @@ region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwf00"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn05x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhq36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo03l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw81c")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aexxm")
@@ -74,13 +109,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vh2h"]
 size = Vector2(14, 13)
 
-[node name="Invader_5" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hac8c"]
+size = Vector2(12, 11)
+
+[node name="Momiji" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_n3ss3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vwf00")
-animation = &"idle"
+animation = &"explode"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_6vh2h")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_hac8c")
+debug_color = Color(0, 1, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

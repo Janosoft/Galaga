@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t4trmjnw4av7"
-path="res://.godot/imported/Invader7.png-d2713f5e6b14b94fd85f4b62f71eb02e.ctex"
+uid="uid://b2tuugincmonl"
+path="res://.godot/imported/Momiji.png-73b06c2e9c0705783dcbbbae8d7e5154.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader7.png"
-dest_files=["res://.godot/imported/Invader7.png-d2713f5e6b14b94fd85f4b62f71eb02e.ctex"]
+source_file="res://Assets/Enemies/Momiji.png"
+dest_files=["res://.godot/imported/Momiji.png-73b06c2e9c0705783dcbbbae8d7e5154.ctex"]
 
 [params]
 

@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://355puh8npa4q"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Boss Galaga.gd" id="1_yoqvo"]
+[ext_resource type="Texture2D" uid="uid://bawcvr3nxxssb" path="res://Assets/Enemies/EnemyExplosion.png" id="2_wilwu"]
+[ext_resource type="Texture2D" uid="uid://5wj71qp2pnru" path="res://Assets/Enemies/BossGalaga.png" id="3_1nyim"]
+[ext_resource type="Texture2D" uid="uid://dlka1ufoetmn8" path="res://Assets/Enemies/BossGalagaAlternative.png" id="4_xdygs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb3fv"]
+atlas = ExtResource("2_wilwu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38n2x"]
+atlas = ExtResource("2_wilwu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whl58"]
+atlas = ExtResource("2_wilwu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0s65"]
+atlas = ExtResource("2_wilwu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjgka"]
+atlas = ExtResource("3_1nyim")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuykr"]
+atlas = ExtResource("3_1nyim")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xae5y"]
+atlas = ExtResource("4_xdygs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0al3a"]
+atlas = ExtResource("4_xdygs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krikm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb3fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38n2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whl58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0s65")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjgka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuykr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xae5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0al3a")
+}],
+"loop": true,
+"name": &"idle_hit",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm16c"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0poav"]
+size = Vector2(14, 14)
+
+[node name="BossGalaga" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_yoqvo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_krikm")
+animation = &"explode"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cm16c")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_0poav")
+debug_color = Color(0, 1, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

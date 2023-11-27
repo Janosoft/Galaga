@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7egda8pivf"
-path="res://.godot/imported/Invader6.png-1f8b7243586a37f33f71cae69ea1ec7d.ctex"
+uid="uid://b4ld326jf4kgh"
+path="res://.godot/imported/Goei.png-edde8db055411792d421cc4aa4b10326.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader6.png"
-dest_files=["res://.godot/imported/Invader6.png-1f8b7243586a37f33f71cae69ea1ec7d.ctex"]
+source_file="res://Assets/Enemies/Goei.png"
+dest_files=["res://.godot/imported/Goei.png-edde8db055411792d421cc4aa4b10326.ctex"]
 
 [params]
 

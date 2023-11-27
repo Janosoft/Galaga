@@ -25,7 +25,7 @@ func _move(delta):
 	if position.y > viewportSize.y: position.y= STARTY
 
 func _on_hitbox_body_entered(body):
-	if body.name == "Missile":
+	if body.name == "PlayerMissile":
 		body._destroy() #Destoy Missile
 		_hit()
 

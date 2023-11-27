@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 100
 const STARTX = 120
 
-var preMissile = preload("res://Scenes/Player/Missile.tscn")
+var preMissile = preload("res://Scenes/Player/PlayerMissile.tscn")
 var missile = null
 var lives = 3
 var exploding = false

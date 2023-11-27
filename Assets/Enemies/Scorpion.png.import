@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8fslp35w3w4c"
-path="res://.godot/imported/Invader4.png-7d2ad933e3899d4bea682552ade46024.ctex"
+uid="uid://7egda8pivf"
+path="res://.godot/imported/Scorpion.png-67aece27571214b4af076ba7d82481bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader4.png"
-dest_files=["res://.godot/imported/Invader4.png-7d2ad933e3899d4bea682552ade46024.ctex"]
+source_file="res://Assets/Enemies/Scorpion.png"
+dest_files=["res://.godot/imported/Scorpion.png-67aece27571214b4af076ba7d82481bf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2tuugincmonl"
-path="res://.godot/imported/Invader5.png-a3282fe4103aeeb18a72447f6e5e2723.ctex"
+uid="uid://c8fslp35w3w4c"
+path="res://.godot/imported/Yako.png-44336558ac7a9501bc9f67d5d9dc63b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader5.png"
-dest_files=["res://.godot/imported/Invader5.png-a3282fe4103aeeb18a72447f6e5e2723.ctex"]
+source_file="res://Assets/Enemies/Yako.png"
+dest_files=["res://.godot/imported/Yako.png-44336558ac7a9501bc9f67d5d9dc63b5.ctex"]
 
 [params]
 

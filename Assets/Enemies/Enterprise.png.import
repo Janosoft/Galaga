@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlka1ufoetmn8"
-path="res://.godot/imported/Invader2.png-d302144c75741ba5fa2b59cf87ed6c40.ctex"
+uid="uid://dtqxisgjwuqb5"
+path="res://.godot/imported/Enterprise.png-8861a41cb04d77cd78606462b8219ece.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader2.png"
-dest_files=["res://.godot/imported/Invader2.png-d302144c75741ba5fa2b59cf87ed6c40.ctex"]
+source_file="res://Assets/Enemies/Enterprise.png"
+dest_files=["res://.godot/imported/Enterprise.png-8861a41cb04d77cd78606462b8219ece.ctex"]
 
 [params]
 

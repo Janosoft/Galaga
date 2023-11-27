@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3qql1erkxw3n"]
+[gd_scene load_steps=10 format=3 uid="uid://d3qql1erkxw3n"]
 
 [ext_resource type="PackedScene" uid="uid://dbpdkyckoyx3m" path="res://Scenes/Player/Player.tscn" id="1_q066e"]
-[ext_resource type="PackedScene" uid="uid://355puh8npa4q" path="res://Scenes/Enemies/Invader_1.tscn" id="2_dbtnn"]
+[ext_resource type="PackedScene" uid="uid://355puh8npa4q" path="res://Scenes/Enemies/BossGalaga.tscn" id="2_dbtnn"]
+[ext_resource type="PackedScene" uid="uid://b858cncoq3o3f" path="res://Scenes/Enemies/BosconianSpyFighter.tscn" id="3_iwg6x"]
+[ext_resource type="PackedScene" uid="uid://clnob5gghis2" path="res://Scenes/Enemies/Enterprise.tscn" id="4_d8weq"]
+[ext_resource type="PackedScene" uid="uid://bwg0enc3wua5" path="res://Scenes/Enemies/Goei.tscn" id="5_bie5i"]
+[ext_resource type="PackedScene" uid="uid://chomy5gehky17" path="res://Scenes/Enemies/Momiji.tscn" id="6_rl5a8"]
+[ext_resource type="PackedScene" uid="uid://c314wha7kqkuk" path="res://Scenes/Enemies/Scorpion.tscn" id="7_cbx40"]
+[ext_resource type="PackedScene" uid="uid://cdpesob4ar665" path="res://Scenes/Enemies/Towbow.tscn" id="8_p6exd"]
+[ext_resource type="PackedScene" uid="uid://dkbbd1s4set2k" path="res://Scenes/Enemies/Yako.tscn" id="9_mkrq2"]
 
 [node name="Level_1" type="Node2D"]
 
@@ -18,5 +25,26 @@ motion_mode = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Invader_1" parent="Enemies" instance=ExtResource("2_dbtnn")]
+[node name="Towbow" parent="Enemies" instance=ExtResource("8_p6exd")]
+position = Vector2(20, 20)
+
+[node name="Yako" parent="Enemies" instance=ExtResource("9_mkrq2")]
+position = Vector2(40, 20)
+
+[node name="Goei" parent="Enemies" instance=ExtResource("5_bie5i")]
+position = Vector2(60, 20)
+
+[node name="Enterprise" parent="Enemies" instance=ExtResource("4_d8weq")]
+position = Vector2(80, 20)
+
+[node name="BosconianSpyFighter" parent="Enemies" instance=ExtResource("3_iwg6x")]
+position = Vector2(100, 20)
+
+[node name="BossGalaga" parent="Enemies" instance=ExtResource("2_dbtnn")]
 position = Vector2(120, 20)
+
+[node name="Momiji" parent="Enemies" instance=ExtResource("6_rl5a8")]
+position = Vector2(140, 20)
+
+[node name="Scorpion" parent="Enemies" instance=ExtResource("7_cbx40")]
+position = Vector2(160, 20)

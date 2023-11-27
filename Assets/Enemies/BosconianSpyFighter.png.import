@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wj71qp2pnru"
-path="res://.godot/imported/Invader1.png-8d1c5618ef14c4350e16556379296179.ctex"
+uid="uid://t4trmjnw4av7"
+path="res://.godot/imported/BosconianSpyFighter.png-fff0681c851ab92219af06d81776d88d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader1.png"
-dest_files=["res://.godot/imported/Invader1.png-8d1c5618ef14c4350e16556379296179.ctex"]
+source_file="res://Assets/Enemies/BosconianSpyFighter.png"
+dest_files=["res://.godot/imported/BosconianSpyFighter.png-fff0681c851ab92219af06d81776d88d.ctex"]
 
 [params]
 

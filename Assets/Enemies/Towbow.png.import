@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1hbhefg6nvoy"
-path="res://.godot/imported/Invader8.png-f04c5ee971ef526fdaf233d7200a0ec1.ctex"
+path="res://.godot/imported/Towbow.png-bb560be330168b74e194483e7c2c1bc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Invader8.png"
-dest_files=["res://.godot/imported/Invader8.png-f04c5ee971ef526fdaf233d7200a0ec1.ctex"]
+source_file="res://Assets/Enemies/Towbow.png"
+dest_files=["res://.godot/imported/Towbow.png-bb560be330168b74e194483e7c2c1bc0.ctex"]
 
 [params]
 

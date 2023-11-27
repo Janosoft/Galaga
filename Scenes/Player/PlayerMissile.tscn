@@ -1,22 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://bnbxlt6edhsno"]
 
-[ext_resource type="Script" path="res://Scripts/Missile.gd" id="1_q23no"]
-[ext_resource type="Texture2D" uid="uid://dcxm78kca774y" path="res://Assets/Player/Missile.png" id="1_s27cy"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerMissile.gd" id="1_ygp3e"]
+[ext_resource type="Texture2D" uid="uid://dcxm78kca774y" path="res://Assets/Player/Missile.png" id="2_fixbk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvvfh"]
-atlas = ExtResource("1_s27cy")
+atlas = ExtResource("2_fixbk")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nu36m"]
-atlas = ExtResource("1_s27cy")
+atlas = ExtResource("2_fixbk")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qxfs"]
-atlas = ExtResource("1_s27cy")
+atlas = ExtResource("2_fixbk")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rum0j"]
-atlas = ExtResource("1_s27cy")
+atlas = ExtResource("2_fixbk")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cg0jn"]
@@ -50,10 +50,10 @@ size = Vector2(3, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4j7c"]
 size = Vector2(3, 6)
 
-[node name="Missile" type="CharacterBody2D"]
+[node name="PlayerMissile" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_q23no")
+script = ExtResource("1_ygp3e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cg0jn")
