@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 2
+const SPEED = 50
 const STARTY = 20
 
 var lives = 2
@@ -9,13 +9,13 @@ var lives = 2
 
 func _physics_process(delta):
 	_animate()
-	_move()
+	_move(delta)
 
 func _animate():
 	if lives == 1: animatedSprite.play("idle_hit")
 
-func _move():
-	position.y += SPEED
+func _move(delta):
+	position.y += SPEED * delta
 	if position.y > viewportSize.y: position.y= STARTY
 
 func _on_hitbox_body_entered(body):

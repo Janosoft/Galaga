@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const SPEED = 5
+const SPEED = 300
 
 func _physics_process(delta):
-	_move()
+	_move(delta)
 	
-func _move():
-	position.y -= SPEED
+func _move(delta):
+	position.y -= SPEED * delta
 	if position.y <=0: _destroy()
 
 func _destroy():

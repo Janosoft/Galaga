@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 2
+const SPEED = 100
 const STARTX = 120
 
 var preMissile = preload("res://Scenes/Player/Missile.tscn")
@@ -12,7 +12,7 @@ var exploding = false
 
 func _physics_process(delta):
 	_animate()
-	if !exploding: _controls()
+	if !exploding: _controls(delta)
 	move_and_slide()
 
 func _animate():
@@ -21,11 +21,11 @@ func _animate():
 				exploding= false
 				animatedSprite.play("idle")
 
-func _controls():
+func _controls(delta):
 	if Input.is_action_pressed("move_left"):
-		if position.x>20: position.x -= SPEED
+		if position.x>20: position.x -= SPEED * delta
 	elif Input.is_action_pressed("move_right"):
-		if position.x<180:position.x += SPEED
+		if position.x<180:position.x += SPEED * delta
 	elif Input.is_action_just_pressed("shoot"):
 		_shoot()
 
