@@ -12,19 +12,19 @@ Este proyecto es una recreación del clásico juego Galaga de Family Game, desar
 
 ## Cómo Empezar
 1. **Requisitos Previos:**
-   - Godot 4.1.3 Engine instalado.
-   - Clona este repositorio: `git clone git@github.com:Janosoft/Galaga.git`
+   - Godot Engine 4.1.3 instalado.
+   - Cloná este repositorio: `git clone git@github.com:Janosoft/Galaga.git`
 
 2. **Ejecutar el Juego:**
-   - Abre Godot Engine.
-   - Selecciona "Importar Proyecto" y buscá la carpeta del proyecto.
-   - Ejecuta el juego desde Godot.
+   - Abrí Godot Engine.
+   - Seleccioná "Importar Proyecto" y buscá la carpeta del proyecto.
+   - Ejecutá el juego desde Godot.
 
 ## Contribuciones
-¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el juego, abre un problema o envía una solicitud de extracción.
+¡Las contribuciones son bienvenidas! Si tenés ideas para mejorar el juego, abre un problema o envía un pull request.
 
 ## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT.
 
 ## Contacto
 - **Nombre:** Alejandro Martín Lodes
