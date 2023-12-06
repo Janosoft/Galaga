@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 const SPEED = 100
 const STARTX = 120
-
+var canShoot= true
 var preMissile = preload("res://Scenes/Player/PlayerMissile.tscn")
-var missile = null
 var lives = 3
 var exploding = false
 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var screensize = get_viewport_rect().size
 
 func _physics_process(delta):
 	_animate()
@@ -23,22 +23,22 @@ func _animate():
 				_reset()
 
 func _controls(delta):
-	if Input.is_action_pressed("move_left"):
-		if position.x>20: position.x -= SPEED * delta
-	elif Input.is_action_pressed("move_right"):
-		if position.x<180:position.x += SPEED * delta
-	elif Input.is_action_just_pressed("shoot"):
+	var direction = Input.get_axis("move_left", "move_right")
+	position.x+= direction * SPEED * delta
+	position.x= clamp(position.x, 16, screensize.x - 16) #Agrega un limite para que no se salga de la pantalla
+	if Input.is_action_just_pressed("shoot"):
 		_shoot()
 
 func _reset():
 	position.x = STARTX
 
 func _shoot():
-	#Solo puede haber un misil al mismo tiempo
-	if missile == null:
-		missile = preMissile.instantiate()
+	if canShoot:
+		canShoot= false
+		var missile = preMissile.instantiate()
 		missile.position = position + Vector2(0,-12) # Diferencia trompa de la nave
-		get_parent().call_deferred("add_child", missile)
+		get_tree().root.add_child(missile)
+		$GunCooldown.start()
 
 func _hit():
 	lives -= 1
@@ -50,3 +50,6 @@ func _on_hitbox_body_entered(body):
 	if body.get_parent().name == "Enemies":
 		body._reset()
 		_hit()
+
+func _on_gun_cooldown_timeout():
+	canShoot= true

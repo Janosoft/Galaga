@@ -25,7 +25,7 @@ func _move(delta):
 
 func _on_hitbox_body_entered(body):
 	if body.name == "PlayerMissile":
-		body._destroy() #Destoy Missile
+		body.destroy() #Destoy Missile
 		_hit()
 
 func _hit():

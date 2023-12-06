@@ -7,7 +7,9 @@ func _physics_process(delta):
 	
 func _move(delta):
 	position.y -= SPEED * delta
-	if position.y <=0: _destroy()
 
-func _destroy():
+func destroy():
 	queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	destroy()
