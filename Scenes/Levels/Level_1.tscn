@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3qql1erkxw3n"]
+[gd_scene load_steps=3 format=3 uid="uid://d3qql1erkxw3n"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level_1.gd" id="1_d70k1"]
+[ext_resource type="Script" path="res://Scripts/Levels/Level_1.gd" id="1_d70k1"]
 [ext_resource type="PackedScene" uid="uid://dbpdkyckoyx3m" path="res://Scenes/Player/Player.tscn" id="1_q066e"]
-[ext_resource type="PackedScene" uid="uid://355puh8npa4q" path="res://Scenes/Enemies/BossGalaga.tscn" id="2_dbtnn"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_d70k1")
@@ -19,8 +18,5 @@ position = Vector2(120, 210)
 motion_mode = 1
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="BossGalaga" parent="Enemies" instance=ExtResource("2_dbtnn")]
-position = Vector2(80, 30)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]

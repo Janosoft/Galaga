@@ -26,6 +26,12 @@ func _spawn_enemies():
 	var pos = Vector2(40, 30)
 	$Enemies.add_child(e)
 	e.start(pos)
+	
+	enemy= preload(ENEMYTYPE2)
+	e = enemy.instantiate()
+	pos = Vector2(120, 30)
+	$Enemies.add_child(e)
+	e.start(pos)
 
 func _on_enemy_died(value):
 	score += value

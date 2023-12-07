@@ -27,12 +27,8 @@ func start(pos):
 	$ShootTimer.wait_time = randf_range(shootTimerMin,shootTimerMax)
 	$ShootTimer.start()
 
-func _physics_process(delta):
-	if !exploding: _move(delta)
-	
-	#DEBUG
-	if Input.is_action_just_pressed("shoot"):
-		_shoot()
+func _physics_process(delta): 
+	if speed > 0: _move(delta)
 
 func _move(delta):
 	position.y += speed * delta

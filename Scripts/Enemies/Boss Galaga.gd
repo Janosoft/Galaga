@@ -28,7 +28,7 @@ func start(pos):
 	$ShootTimer.start()
 
 func _physics_process(delta):
-	if !exploding: _move(delta)
+	if speed > 0: _move(delta)
 
 func _move(delta):
 	position.y += speed * delta
