@@ -26,10 +26,9 @@ func _animate():
 
 func _controls(delta):
 	var direction = Input.get_axis("move_left", "move_right")
-	position.x+= direction * SPEED * delta
+	position.x += direction * SPEED * delta
 	position.x= clamp(position.x, 16, screensize.x - 16) #Agrega un limite para que no se salga de la pantalla
-	if Input.is_action_just_pressed("shoot"):
-		_shoot()
+	if Input.is_action_just_pressed("shoot"): _shoot()
 
 func _reset():
 	position.x = STARTX
