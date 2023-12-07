@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb1pccw6fdx6q"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemyMissile.gd" id="1_1bnks"]
+[ext_resource type="Texture2D" uid="uid://p4qqlkw56wxw" path="res://Assets/Enemies/MissileAlternative.png" id="1_su0bc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otmei"]
+atlas = ExtResource("1_su0bc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65rfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otmei")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd3th"]
+size = Vector2(3, 8)
+
+[node name="EnemyMissile" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1bnks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_65rfo")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_dd3th")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 2.38419e-07)
+scale = Vector2(0.25, 0.5)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

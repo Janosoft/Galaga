@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p4qqlkw56wxw"
-path="res://.godot/imported/MissileAlternative.png-dd56587e8c70578d86194d99dd8da728.ctex"
+path="res://.godot/imported/MissileAlternative.png-95e4f23ddd43e168c932c162bf45b388.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/MissileAlternative.png"
-dest_files=["res://.godot/imported/MissileAlternative.png-dd56587e8c70578d86194d99dd8da728.ctex"]
+source_file="res://Assets/Enemies/MissileAlternative.png"
+dest_files=["res://.godot/imported/MissileAlternative.png-95e4f23ddd43e168c932c162bf45b388.ctex"]
 
 [params]
 

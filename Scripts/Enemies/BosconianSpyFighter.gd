@@ -14,12 +14,13 @@ var points= 5
 
 var speed= 0
 var exploding= false
+var preMissile = preload("res://Scenes/Enemies/EnemyMissile.tscn")
 @onready var viewportSize= get_viewport().content_scale_size
 @onready var animatedSprite= $AnimatedSprite2D
 
 func start(pos):
 	speed = 0
-	position = Vector2(pos.x, -pos.y)
+	position = Vector2(pos.x, pos.y)
 	start_pos = pos
 	$MoveTimer.wait_time = randf_range(moveTimerMin,moveTimerMax)
 	$MoveTimer.start()
@@ -28,10 +29,14 @@ func start(pos):
 
 func _physics_process(delta):
 	if !exploding: _move(delta)
+	
+	#DEBUG
+	if Input.is_action_just_pressed("shoot"):
+		_shoot()
 
 func _move(delta):
 	position.y += speed * delta
-	if position.y > viewportSize.y: position.y= start_pos.y
+	if position.y > viewportSize.y: _reset()
 
 func _on_hitbox_body_entered(body):
 	if body.name == "PlayerMissile":
@@ -52,15 +57,21 @@ func _destroy():
 	queue_free()
 	
 func _reset():
-	position.y= 20
+	position.y= start_pos.y
+	speed= 0
 
 func _on_move_timer_timeout():
 	speed = randf_range(speedMin, speedMax)
+	$MoveTimer.wait_time = randf_range(moveTimerMin,moveTimerMax)
+	$MoveTimer.start()
 
 func _on_shoot_timer_timeout():
-	_shoot()
-	$ShootTimer.wait_time = randf_range(shootTimerMin,shootTimerMax)
-	$ShootTimer.start()
+	if !exploding:
+		_shoot()
+		$ShootTimer.wait_time = randf_range(shootTimerMin,shootTimerMax)
+		$ShootTimer.start()
 
 func _shoot():
-	pass
+	var missile = preMissile.instantiate()
+	missile.position = position + Vector2(0,12) # Diferencia trompa de la nave
+	get_tree().root.add_child(missile)

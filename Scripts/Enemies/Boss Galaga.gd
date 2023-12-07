@@ -1,28 +1,38 @@
 extends CharacterBody2D
 
-const SPEED = 50
-const STARTY = 20
+signal died
 
-var lives = 2
-var exploding = false
-@onready var viewportSize = get_viewport().content_scale_size
-@onready var animatedSprite = $AnimatedSprite2D
+var start_pos= Vector2.ZERO
+var speedMin= 50
+var speedMax= 75
+var moveTimerMin= 5
+var moveTimerMax= 20
+var shootTimerMin= 4
+var shootTimerMax= 20
+var lives= 2
+var points= 5
+
+var speed= 0
+var exploding= false
+var preMissile = preload("res://Scenes/Enemies/EnemyMissile.tscn")
+@onready var viewportSize= get_viewport().content_scale_size
+@onready var animatedSprite= $AnimatedSprite2D
+
+func start(pos):
+	speed = 0
+	position = Vector2(pos.x, pos.y)
+	start_pos = pos
+	$MoveTimer.wait_time = randf_range(moveTimerMin,moveTimerMax)
+	$MoveTimer.start()
+	$ShootTimer.wait_time = randf_range(shootTimerMin,shootTimerMax)
+	$ShootTimer.start()
 
 func _physics_process(delta):
-	_animate()
 	if !exploding: _move(delta)
 
-func _animate():
-	if animatedSprite.animation=="explode":
-		if !animatedSprite.is_playing():
-				queue_free()
-	else:
-		if lives == 1: animatedSprite.play("idle_hit")
-		else: animatedSprite.play("idle")
-
 func _move(delta):
-	position.y += SPEED * delta
-	if position.y > viewportSize.y: position.y= STARTY
+	position.y += speed * delta
+	if position.y > viewportSize.y: _reset()
 
 func _on_hitbox_body_entered(body):
 	if body.name == "PlayerMissile":
@@ -32,10 +42,33 @@ func _on_hitbox_body_entered(body):
 func _hit():
 	lives -=1
 	if lives <=0: _destroy()
+	else: animatedSprite.play("idle_hit")
 
 func _destroy():
+	speed = 0
 	exploding= true
 	animatedSprite.play("explode")
+	set_deferred("monitorable", false)
+	died.emit(points)
+	await animatedSprite.animation_finished
+	queue_free()	
 
 func _reset():
-	position.y= 20
+	position.y= start_pos.y
+	speed= 0
+
+func _on_move_timer_timeout():
+	speed = randf_range(speedMin, speedMax)
+	$MoveTimer.wait_time = randf_range(moveTimerMin,moveTimerMax)
+	$MoveTimer.start()
+
+func _on_shoot_timer_timeout():
+	if !exploding:
+		_shoot()
+		$ShootTimer.wait_time = randf_range(shootTimerMin,shootTimerMax)
+		$ShootTimer.start()
+
+func _shoot():
+	var missile = preMissile.instantiate()
+	missile.position = position + Vector2(0,12) # Diferencia trompa de la nave
+	get_tree().root.add_child(missile)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnbxlt6edhsno"]
+[gd_scene load_steps=9 format=3 uid="uid://bnbxlt6edhsno"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMissile.gd" id="1_ygp3e"]
 [ext_resource type="Texture2D" uid="uid://dcxm78kca774y" path="res://Assets/Player/Missile.png" id="2_fixbk"]
@@ -47,9 +47,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26hqy"]
 size = Vector2(3, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4j7c"]
-size = Vector2(3, 6)
-
 [node name="PlayerMissile" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
@@ -62,15 +59,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_26hqy")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_p4j7c")
-debug_color = Color(0, 1, 0.701961, 0.419608)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0.5, 2.68221e-07)

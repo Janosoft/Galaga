@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 const SPEED = 100
 const STARTX = 120
 var canShoot= true
@@ -44,11 +46,14 @@ func _hit():
 	lives -= 1
 	exploding= true
 	animatedSprite.play("explode")
-	if lives <=0: print ("END GAME")
+	if lives <=0: died.emit()
 
 func _on_hitbox_body_entered(body):
 	if body.get_parent().name == "Enemies":
 		body._reset()
+		_hit()
+	elif body.name == "EnemyMissile":
+		body.destroy() #Destoy Missile
 		_hit()
 
 func _on_gun_cooldown_timeout():
